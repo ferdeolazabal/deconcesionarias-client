@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { NavBar } from '../components/NavBar';
+import { VehiclesList } from '../components/VehiclesList';
 import { useForm } from '../hooks/useform';
 
-import { startNewVehicle } from '../redux/actions/vehicle.js';
+import { startLoadingVehicles, startNewVehicle } from '../redux/actions/vehicle.js';
 
 
 export const Home = () => {
 
+    // @ts-ignore
+    const vehicle = useSelector( state => state.vehicles.vehicles );
+    // console.log( 'vehicles en home', vehicle )
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const [ formValues, handleInputChange ] = useForm( {
@@ -33,14 +38,24 @@ export const Home = () => {
         : setSubmitButton( true );
         }, [ brand, model, year ]);
 
+    //use effect que se quede escuchando los cambios en el state vehicles
+    useEffect(() => {
+        dispatch( startLoadingVehicles() );
+    }, [ dispatch ]);
+        return (
+            <div className='home container'>
 
-    return (
-        <div className='container'>
-            <h1 className='mt-2 mb-2'>Formulario de Inspección</h1>
+            <NavBar />
+            {/* <NavBar /> */}
+            
+
+            <h1 className='mt-4 mb-4'>Formulario de Inspección</h1>
             <hr />
 
-            <div className='col-6'>
-            <h4>Ingresar Vehiculo </h4>
+            <div className='row mt-4 mb-4'>
+
+                <div className='col-5 mt-3 mb-3'>
+                    <h4>Ingresar Vehiculo </h4>
                     <hr/>
                     <form onSubmit={ handleSubmit }>
                         <input
@@ -86,6 +101,25 @@ export const Home = () => {
                     </form>
                 </div>
 
+                <div className='col-7 mt-3 mb-3'>
+                    <h4>Vehiculos Ingresados</h4>
+                    <hr/>
+                    <ul className='list-group'>
+
+                        {
+                            ( vehicle && vehicle.length === 0 ) || ( vehicle.count === 0 ) 
+                                ?
+                                <div className='alert alert-info'>
+                                    No hay Vehiculos Ingresados. . .
+                                </div>
+                                :
+                                <VehiclesList />
+                        }
+
+                    </ul>
+                </div>
+                
+            </div>
         </div>
     )
 }

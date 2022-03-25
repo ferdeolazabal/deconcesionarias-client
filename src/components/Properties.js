@@ -1,11 +1,18 @@
 import { useSelector } from "react-redux";
 import Content from "./Content";
-import { TabPanel } from "./TabPanel";
+import { TabPanel } from "../helpers/TabPanel";
+import { useNavigate } from "react-router-dom";
 
 export const Properties = ( { property } ) => {
 
     // @ts-ignore
     const { getVehicleProperty } = useSelector( state => state.property.properties );
+    const navigate = useNavigate()
+
+    const handleSubmit  = (e) => {
+        e.preventDefault();
+        navigate('/');
+    }
 
 
     return (
@@ -20,6 +27,7 @@ export const Properties = ( { property } ) => {
                                     (
                                         <div
                                             className=""
+                                            key={ property.id }
                                         >
 
                                         <Content 
@@ -36,12 +44,17 @@ export const Properties = ( { property } ) => {
                 <div className="fixed-bottom">
                     < div className="d-grid gap-2 col-5 mx-auto">
                         
-                        <button className="mb-5 btn btn-lg btn-block btn-primary">
-                            Submit
+                        <button 
+                            className="mb-5 btn btn-lg btn-block btn-primary"
+                            type="button"
+                            onClick={ handleSubmit }
+                        >
+                            Finalizar
                         </button>
 
                     </div>
                 </div>
+
             </div>
         </div>
     )

@@ -1,21 +1,16 @@
 import { types } from "../types/types";
 
 const initialState = {
-    value: [],
+    values: [],
 };
 
 export const valueReducer = ( state = initialState, action ) => {
 
     switch ( action.type ) {
-        case types.updateValue:
+        case types.valueCreated:
             return {
                 ...state,
-                value: action.payload,
-            };
-        case types.uiCloseModal:
-            return {
-                ...state,
-                modalOpen: false,
+                values: [ ...action.payload ],
             };
         default:
             return state;

@@ -5,14 +5,23 @@ import axios from "axios";
 const baseUrl = process.env.REACT_APP_API_URL;
 
 
-export const valueCreate = ( event, value) => {
+export const valueCreate = ( id, value) => {
 
-    return async (dispatch) => {
+    return async (dispatch, getState) => {
+        
         dispatch(valueCreateStart());
+        const idVehicleNum = getState().vehicles.vehicle.vehicle.id
+        const idVehicle = idVehicleNum.toString();
 
         try {
-            const { data } = await axios.post(`${ baseUrl }/values`, value);
+            
+            const { data } = await axios.post(`${ baseUrl }/propertyValues`, {
+                vehicle_FK         : idVehicle,
+                vehicle_property_FK: id.toString(),
+                value,
+            });
             dispatch(valueCreated(data));
+        
         } catch (error) {
             console.log(error);
         }

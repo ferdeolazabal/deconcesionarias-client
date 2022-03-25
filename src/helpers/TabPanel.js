@@ -2,7 +2,6 @@ import { Box, Typography } from "@mui/material";
 import PropTypes from 'prop-types';
 
 
-
 export const TabPanel = (props) => {
     // @ts-ignore
     const { children, value, index, ...other } = props;

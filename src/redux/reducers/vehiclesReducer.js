@@ -3,7 +3,7 @@ import { types } from "../types/types";
 
 const initialState = {
     vehicle: [],
-    vehicles: null,
+    vehicles: [],
 };
 
 
@@ -17,7 +17,7 @@ export const vehiclesReducer = ( state = initialState, action ) => {
         case types.vehiclesLoaded:
             return {
                 ...state,
-                vehicle: action.payload,
+                vehicles: action.payload,
             };
         default:
             return state;

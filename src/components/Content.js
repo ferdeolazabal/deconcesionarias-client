@@ -1,24 +1,16 @@
 import { Rating } from "@mui/material";
-import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { valueCreate } from "../redux/actions/value";
 
 const Content = ( { id, name, value} ) => {
 
     const dispatch = useDispatch()
-    const state = useSelector( state => state );
-    console.log( state );
 
-    // const [value, setValue] = useState(2);
+    const updateValue = ( id, e ) => {
 
-    const updateValue = ( event, newValue ) => {
-        console.log( event, newValue );
-        dispatch( valueCreate( event, newValue ) );
-        // dispatch({
-        //     type: types.valueCreate,
-        //     payload: { id, value }
-        // });
-    }
+        dispatch( valueCreate( id, e.target.value ) );
+
+    };
 
     return (
         <div
@@ -31,7 +23,8 @@ const Content = ( { id, name, value} ) => {
                 size='small'
                 name={`simple-controlled-${ id }`}
                 value={ value }
-                onChange={ ( event, newValue ) => updateValue( event, newValue ) }
+                onChange={(newValue) => {
+                    updateValue( id, newValue );}}
             />
 
         </div>

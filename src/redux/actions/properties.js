@@ -10,9 +10,11 @@ export const startLoadingProperties = () => {
         dispatch(propertiesLoading());
 
         try {
+            
             const response = await axios(`${ baseUrl }/vehicleProperty`);
             const { data } = await response
             dispatch(propertiesLoaded(data));
+        
         } catch (error) {
             console.log(error);
         }

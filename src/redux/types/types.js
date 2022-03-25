@@ -1,25 +1,28 @@
 
 export const types = {
 
-    categoriesLoading : '[Category] Categories loading',
-    categoriesLoaded  : '[Category] Categories loaded',
-
-    propertyLoading   : '[Property] Property Loading',
-    propertyLoaded    : '[Property] Property loaded',
+    categoriesLoading      : '[Category] Categories loading',
+    categoriesLoaded       : '[Category] Categories loaded',
     
-    newVehicle        : '[Vehicle] New Vehicle',
-    newVehicleStart   : '[Vehicle] Start New Vehicle',
-    VehicleSaved      : '[Vehicle] Vehicle Saved',
-    VehicleUpdated    : '[Vehicle] Vehicle Updated',
-    VehicleDeleted    : '[Vehicle] Vehicle Deleted',
-    VehiclesLoaded    : '[Vehicle] Vehicles Loaded',
+    propertyLoading        : '[Property] Property Loading',
+    propertyLoaded         : '[Property] Property loaded',
+        
+    newVehicle             : '[Vehicle] New Vehicle',
+    newVehicleStart        : '[Vehicle] Start New Vehicle',
+    getvehicle             : '[Vehicle] Get vehicle',
+    vehiclesLoading        : '[Vehicle] Vehicles Loading',
+    vehiclesLoaded         : '[Vehicle] Vehicles Loaded',
+        
+    VehicleSaved           : '[Vehicle] Vehicle Saved',
+    VehicleUpdated         : '[Vehicle] Vehicle Updated',
+    VehicleDeleted         : '[Vehicle] Vehicle Deleted',
     
     
     uiSetError        : '[UI] Set Error',
     uiRemoveError     : '[UI] Remove Error',
 
 
-    valueCreate       : '[Value] Create value',
+    valueCreate       : '[Value] Value create',
     valueCreated      : '[Value] Value created',
 
     valueUpdate       : '[Value] Update event',
