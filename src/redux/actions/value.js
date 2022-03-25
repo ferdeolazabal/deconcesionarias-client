@@ -2,7 +2,7 @@ import { types } from "../types/types";
 // import Swal from "sweetalert2";
 import axios from "axios";
 
-const baseUrl = process.env.REACT_APP_HOST;
+const baseUrl = "https://olazabal-deconcesionarias-api.herokuapp.com/api";
 
 
 export const valueCreate = ( id, value) => {

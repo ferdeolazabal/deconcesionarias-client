@@ -1,7 +1,7 @@
 import axios from "axios";
 import { types } from "../types/types";
 
-const baseUrl = process.env.REACT_APP_HOST;
+const baseUrl = "https://olazabal-deconcesionarias-api.herokuapp.com/api";
 
 
 export const startLoadingProperties = () => {
