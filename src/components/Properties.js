@@ -7,6 +7,9 @@ export const Properties = ( { property } ) => {
 
     // @ts-ignore
     const { getVehicleProperty } = useSelector( state => state.property.properties );
+    // @ts-ignore
+    const vehicleValues = useSelector( state => state.vehicles.vehicle.vehicle );
+    console.log('vehicleValuesssssss',vehicleValues)
     const navigate = useNavigate()
 
     const handleSubmit  = (e) => {
@@ -29,12 +32,11 @@ export const Properties = ( { property } ) => {
                                             className=""
                                             key={ property.id }
                                         >
-
-                                        <PropertyValue 
-                                            id={property.id}
-                                            name={property.name}
-                                            value={property.value}
-                                        />
+                                                <PropertyValue 
+                                                    id={property.id}
+                                                    name={property.name}
+                                                    value={property.value}
+                                                />
                                         </div>
                                     )
                                 )

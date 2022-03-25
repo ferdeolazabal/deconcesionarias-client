@@ -7,9 +7,7 @@ const PropertyValue = ( { id, name, value} ) => {
     const dispatch = useDispatch()
 
     const updateValue = ( id, e ) => {
-
         dispatch( valueCreate( id, e.target.value ) );
-
     };
 
     return (

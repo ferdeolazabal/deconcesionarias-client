@@ -27,6 +27,11 @@ export const vehiclesReducer = ( state = initialState, action ) => {
                     ( vehicle ) => vehicle.id !== action.payload
                 ),
             };
+        case types.vehicleLoadedById:
+            return {
+                ...state,
+                vehicle: action.payload,
+            };
         default:
             return state;
     };

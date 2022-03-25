@@ -1,17 +1,22 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 // import { IconButton  } from '@mui/material';
 // import EditIcon from '@mui/icons-material/Edit';
 // import DeleteIcon from '@mui/icons-material/Delete';
 // 
-import { startDeleteVehicle } from '../redux/actions/vehicle';
+import { getVehicleById, startDeleteVehicle } from '../redux/actions/vehicle';
 
 
 export const VehiclesList = () => {
     
     const dispatch = useDispatch();
+    const navigate = useNavigate()
     // @ts-ignore
-    const vehicles = useSelector( state => state.vehicles.vehicles );
+    const vehicles    = useSelector( state => state.vehicles.vehicles );
+    // @ts-ignore
+
+
 
     const capitalize = ( str = '' ) => {
         return str.charAt( 0 ).toUpperCase() + str.slice( 1 );
@@ -20,14 +25,29 @@ export const VehiclesList = () => {
     const handleOptions = ( e, id) => {
         e.preventDefault();
         const { value } = e.target;
-        // console.log('e',e);
-        // console.log('id',id);
 
-        value === 'delete' 
-            ? dispatch( startDeleteVehicle( id ) )
-            : console.log('no delete');
-            // : dispatch( startEditVehicle( id ) );
-
+        switch( value ) {
+            case 'edit':
+                console.log('edit', id)
+                dispatch(getVehicleById(id));
+                navigate('/inspection');
+                break;
+            case 'delete':
+                dispatch( startDeleteVehicle( id ) );
+                break;
+            default:
+                break;
+        };
+        
+            // para editar los valores de las propiedades del vehiculo
+            // tengo q mandar el id del vehiculo, y el id de la propiedad
+            // y el valor de la propiedad
+            // para esto tengo q traer el auto con el id del vehiculo
+            // y luego tengo q traer la propiedad con el id de la propiedad
+            // y luego tengo q traer el valor de la propiedad con el id del valor
+            // y luego tengo q actualizar el valor de la propiedad con el id del valor
+            // y luego tengo q actualizar el vehiculo con el id del vehiculo
+            // y luego tengo q actualizar el state
     };
 
 return (
@@ -67,8 +87,8 @@ return (
                                             onChange={ (e) => handleOptions(e, vehicle.id) }
                                         >
                                             <option>Opciones</option>
-                                            <option className='mb-2 mp-2' value="edit">Editar</option>
-                                            <option className='mb-2 mp-2' value="delete">Borrar</option>
+                                            {/* <option className='mb-2 mp-2' value="edit">Editar Valores</option> */}
+                                            <option className='mb-2 mp-2' value="delete">Borrar Vehiculo</option>
                                         </select>
                                         
                                     </div>

@@ -13,7 +13,6 @@ export const startNewVehicle = ( data ) => {
         dispatch( newVehicleStart() );
         try {
             const response = await axios.post(`${ baseUrl }/vehicles/`, data);
-            console.log( response );
             dispatch({
                 type: types.newVehicle,
                 payload: response.data
@@ -76,6 +75,26 @@ const vehiclesLoaded = ( data ) => {
         payload: data,
     };
 };
+
+export const getVehicleById = ( id ) => {
+    return async( dispatch ) => {
+        try {
+            const { data } = await axios.get(`${ baseUrl }/vehicles/${ id }`);
+            dispatch(vehicleLoadedById(data));
+            
+        } catch (error) {
+            console.log( error );
+        };
+    };
+};
+
+const vehicleLoadedById = ( data ) => {
+    return {
+        type: types.vehicleLoadedById,
+        payload: data,
+    };
+}
+
 
 export const startDeleteVehicle = ( id ) => {
 

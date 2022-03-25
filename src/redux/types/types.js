@@ -13,6 +13,8 @@ export const types = {
     vehiclesLoaded         : '[Vehicle] Vehicles Loaded',
     VehicleUpdated         : '[Vehicle] Vehicle Updated',
     VehicleDeleted         : '[Vehicle] Vehicle Deleted',
+    vehicleLoadedById      : '[Vehicle] Vehicle Loaded By Id',
+    
     
     // getvehicle             : '[Vehicle] Get vehicle',
 
