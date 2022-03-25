@@ -1,7 +1,7 @@
 import axios from "axios";
 import { types } from "../types/types";
 
-const baseUrl = process.env.REACT_APP_API_URL;
+const baseUrl = process.env.REACT_APP_HOST;
 
 
 export const startLoadingProperties = () => {
