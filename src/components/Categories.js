@@ -11,7 +11,7 @@ const indexTab = (index) => ({
 })
 
 
-export const Inspection = () => {
+const Categories = () => {
 
     // @ts-ignore
     const { propertyCategories } = useSelector( state => state.categories.categories );
@@ -71,3 +71,5 @@ return (
     </div>
 );
 };
+
+export default Categories;

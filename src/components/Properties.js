@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import Content from "./Content";
+import PropertyValue from "./PropertyValue";
 import { TabPanel } from "../helpers/TabPanel";
 import { useNavigate } from "react-router-dom";
 
@@ -30,7 +30,7 @@ export const Properties = ( { property } ) => {
                                             key={ property.id }
                                         >
 
-                                        <Content 
+                                        <PropertyValue 
                                             id={property.id}
                                             name={property.name}
                                             value={property.value}

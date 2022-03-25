@@ -2,7 +2,7 @@ import { Rating } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { valueCreate } from "../redux/actions/value";
 
-const Content = ( { id, name, value} ) => {
+const PropertyValue = ( { id, name, value} ) => {
 
     const dispatch = useDispatch()
 
@@ -31,4 +31,4 @@ const Content = ( { id, name, value} ) => {
     )
 };
 
-export default Content;
+export default PropertyValue;

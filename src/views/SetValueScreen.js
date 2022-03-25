@@ -1,10 +1,10 @@
-import { Inspection } from "../components/Inspection.js";
+import Categories from "../components/Categories.js";
 
 export const SetValueScreen = () => {
 
     return (
         <>
-            <Inspection />
+            <Categories />
         </>
     );
 };
