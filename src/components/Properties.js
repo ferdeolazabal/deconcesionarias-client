@@ -8,8 +8,6 @@ export const Properties = ( { property } ) => {
     // @ts-ignore
     const { getVehicleProperty } = useSelector( state => state.property.properties );
     // @ts-ignore
-    const vehicleValues = useSelector( state => state.vehicles.vehicle.vehicle );
-    console.log('vehicleValuesssssss',vehicleValues)
     const navigate = useNavigate()
 
     const handleSubmit  = (e) => {
