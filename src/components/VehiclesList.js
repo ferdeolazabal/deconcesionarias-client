@@ -2,8 +2,8 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 // import { IconButton  } from '@mui/material';
-// import EditIcon from '@mui/icons-material/Edit';
 // import DeleteIcon from '@mui/icons-material/Delete';
+// import EditIcon from '@mui/icons-material/Edit';
 // 
 import { getVehicleById, startDeleteVehicle } from '../redux/actions/vehicle';
 
@@ -14,9 +14,6 @@ export const VehiclesList = () => {
     const navigate = useNavigate()
     // @ts-ignore
     const vehicles    = useSelector( state => state.vehicles.vehicles );
-    // @ts-ignore
-
-
 
     const capitalize = ( str = '' ) => {
         return str.charAt( 0 ).toUpperCase() + str.slice( 1 );

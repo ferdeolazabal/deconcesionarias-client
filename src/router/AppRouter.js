@@ -11,6 +11,7 @@ import { SetValueScreen } from "../views/SetValueScreen";
 import { startLoadingCategories } from "../redux/actions/categories.js";
 import { startLoadingProperties } from "../redux/actions/properties.js";
 import { startLoadingVehicles } from "../redux/actions/vehicle";
+import PropertiesEdit from "../components/PropertiesEdit";
 
 
 export const AppRouter = () => {
@@ -23,12 +24,15 @@ export const AppRouter = () => {
         dispatch(startLoadingProperties());
     }, [ dispatch ] );
 
-
     return (
         <BrowserRouter>
             <Routes>
                 <Route path="inspection" element={
                     <SetValueScreen />
+                } />
+                
+                <Route path="PropertiesEdit" element={
+                    <PropertiesEdit />
                 } />
 
                 <Route path="/" element={

@@ -33,3 +33,23 @@ const propertiesLoaded = ( data ) => {
         payload: data,
     };
 };
+
+export const startDeleteProperty = ( idProperty ) => {
+    return async (dispatch) => {
+        try {
+            const response = await axios.delete(`${ baseUrl }/vehicleProperty/${ idProperty }`);
+            const { data } = await response;
+            dispatch(propertyDeleted(data));
+            dispatch(startLoadingProperties());
+        } catch (error) {
+            console.log(error);
+        }
+    };
+};
+
+const propertyDeleted = ( data ) => {
+    return {
+        type: types.PropertyDeleted,
+        payload: data,
+    };
+}

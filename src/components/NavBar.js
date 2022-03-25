@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from 'react-router-dom'
 
 export const NavBar = () => {
 
@@ -15,24 +15,17 @@ export const NavBar = () => {
 
             <div className="navbar-collapse">
                 <div className="navbar-nav">
-
-                
                 </div>
             </div>
         
             <div className="d-flex">
-                <ul className="navbar-nav ml-auto ">
-                    
-                    <span className="nav-item nav-link tet-info">
-                        
-                    </span>
-
-                    <span
-                        className="nav-item nav-link btn"
-                    >
-                        
-                    </span>
-                </ul>
+            <Link 
+                className="navbar-brand" 
+                to="/PropertiesEdit"
+            >
+                Editar Propiedades
+            </Link>
+                
             </div>
         </nav>
 

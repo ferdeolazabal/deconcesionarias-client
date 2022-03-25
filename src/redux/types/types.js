@@ -6,6 +6,8 @@ export const types = {
     
     propertyLoading        : '[Property] Property Loading',
     propertyLoaded         : '[Property] Property loaded',
+    startDeleteProperty    : '[Property] Property Delete',
+    PropertyDeleted        : '[Property] Property Deleted',
 
     newVehicle             : '[Vehicle] New Vehicle',
     newVehicleStart        : '[Vehicle] Start New Vehicle',

@@ -39,13 +39,15 @@ export const Home = () => {
     useEffect(() => {
         dispatch( startLoadingVehicles() );
     }, [ dispatch ]);
-
-        return (
-            <div className='home container'>
+    
+    return (
+        <div className='home container'>
 
             <NavBar />
 
-            <h1 className='mt-4 mb-4'>Formulario de Inspección</h1>
+            <div>
+                <h1 className='mt-4 mb-4'>Formulario de Inspección</h1>
+            </div>
             <hr />
 
             <div className='row mt-4 mb-4'>
