@@ -68,11 +68,53 @@ const vehiclesLoading = () => {
     return {
         type: types.vehiclesLoading,
     };
-}
+};
 
 const vehiclesLoaded = ( data ) => {
     return {
         type: types.vehiclesLoaded,
         payload: data,
     };
-}
+};
+
+export const startDeleteVehicle = ( id ) => {
+
+    return async( dispatch ) => {
+
+        try {
+
+            await axios.delete(`${ baseUrl }/vehicles/${ id }`);
+            dispatch(vehicleDeleted(id));
+            dispatch(startLoadingVehicles());
+
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 5000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            })
+
+            Toast.fire({
+                icon: 'success',
+                title: 'Vehiculo eliminado con exito!'
+            })
+
+        } catch (error) {
+            console.log( error );
+        };
+    };
+};
+
+const vehicleDeleted = ( id ) => {
+    return {
+        type: types.VehicleDeleted,
+        payload: id,
+    };
+};
+
+

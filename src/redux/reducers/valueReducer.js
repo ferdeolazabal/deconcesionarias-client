@@ -10,9 +10,9 @@ export const valueReducer = ( state = initialState, action ) => {
         case types.valueCreated:
             return {
                 ...state,
-                values: [ ...action.payload ],
+                values: [ action.payload ],
             };
         default:
             return state;
     }
-}
+};

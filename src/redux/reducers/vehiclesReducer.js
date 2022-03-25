@@ -19,6 +19,14 @@ export const vehiclesReducer = ( state = initialState, action ) => {
                 ...state,
                 vehicles: action.payload,
             };
+        case types.vehicleDeleted:
+            return {
+                ...state,
+                vehicles: state.vehicles.filter(
+                    // @ts-ignore
+                    ( vehicle ) => vehicle.id !== action.payload
+                ),
+            };
         default:
             return state;
     };

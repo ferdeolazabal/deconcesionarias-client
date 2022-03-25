@@ -12,20 +12,18 @@ export const Home = () => {
 
     // @ts-ignore
     const vehicle = useSelector( state => state.vehicles.vehicles );
-    // console.log( 'vehicles en home', vehicle )
     const dispatch = useDispatch()
     const navigate = useNavigate()
+    
     const [ formValues, handleInputChange ] = useForm( {
         brand: 'Ford',
         model: 'A',
         year : '1930',
     } );
-
     const { brand, model, year } = formValues;
 
     const handleSubmit  = (e) => {
         e.preventDefault();
-        console.log(formValues);
         dispatch( startNewVehicle( formValues ) );
         navigate('/inspection');
     }
@@ -38,16 +36,14 @@ export const Home = () => {
         : setSubmitButton( true );
         }, [ brand, model, year ]);
 
-    //use effect que se quede escuchando los cambios en el state vehicles
     useEffect(() => {
         dispatch( startLoadingVehicles() );
     }, [ dispatch ]);
+
         return (
             <div className='home container'>
 
             <NavBar />
-            {/* <NavBar /> */}
-            
 
             <h1 className='mt-4 mb-4'>Formulario de Inspección</h1>
             <hr />
