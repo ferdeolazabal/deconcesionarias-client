@@ -2,13 +2,13 @@ import { useDispatch, useSelector } from 'react-redux'
 import { IconButton  } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { startDeleteProperty } from '../redux/actions/properties';
+import { NavBar } from './NavBar';
 
 const PropertiesEdit = () => {
 
     const dispatch = useDispatch()
     // @ts-ignore
     const { getVehicleProperty } = useSelector( state => state.property.properties );
-    console.log( 'getVehiclePropertyñññññ',getVehicleProperty)
 
     const handleDelete = (e, id) => {
         e.preventDefault();
@@ -19,7 +19,7 @@ const PropertiesEdit = () => {
 return (
 
     <div className="container">
-    
+        <NavBar />
         <h1 className='mt-4 mb-4'>Formulario de Inspección</h1>
         <hr />
         <div className='row mt-4'>
