@@ -35,16 +35,6 @@ export const VehiclesList = () => {
             default:
                 break;
         };
-        
-            // para editar los valores de las propiedades del vehiculo
-            // tengo q mandar el id del vehiculo, y el id de la propiedad
-            // y el valor de la propiedad
-            // para esto tengo q traer el auto con el id del vehiculo
-            // y luego tengo q traer la propiedad con el id de la propiedad
-            // y luego tengo q traer el valor de la propiedad con el id del valor
-            // y luego tengo q actualizar el valor de la propiedad con el id del valor
-            // y luego tengo q actualizar el vehiculo con el id del vehiculo
-            // y luego tengo q actualizar el state
     };
 
 return (

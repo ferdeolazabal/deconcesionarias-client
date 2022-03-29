@@ -39,11 +39,11 @@ return (
                     value={value} 
                     onChange={handleChange} 
                     textColor="secondary"
-                    //variant="scrollable"
-                    variant="fullWidth"
+                    variant="scrollable"
+                    //variant="fullWidth"
                     indicatorColor="secondary"
-                    //allowScrollButtonsMobile
-                    scrollButtons={true}
+                    allowScrollButtonsMobile
+                    scrollButtons="auto"
                     selectionFollowsFocus
                 >
                     {
@@ -54,7 +54,8 @@ return (
                                         icon={<i className="material-icons outlined md-48 orange600">{ category.icon }</i>}
                                         key={category.id} 
                                         label={category.name} 
-                                        {...indexTab(i)} 
+                                        {...indexTab(i)}
+                                        wrapped
                                     />
                                 )
                             )
