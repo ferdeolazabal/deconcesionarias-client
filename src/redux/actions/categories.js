@@ -1,9 +1,7 @@
 
-import { types } from "../types/types";
-// import Swal from "sweetalert2";
 import axios from "axios";
-
-const baseUrl = "https://olazabal-deconcesionarias-api.herokuapp.com/api";
+import { types } from "../types/types";
+import { baseUrl } from "../../helpers/const";
 
 export const startLoadingCategories = () => {
     

@@ -1,7 +1,6 @@
 import axios from "axios";
+import { baseUrl } from "../../helpers/const";
 import { types } from "../types/types";
-
-const baseUrl = "https://olazabal-deconcesionarias-api.herokuapp.com/api";
 
 
 export const startLoadingProperties = () => {
