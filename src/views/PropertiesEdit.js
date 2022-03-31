@@ -1,21 +1,7 @@
-import { useDispatch, useSelector } from 'react-redux'
-import { IconButton  } from '@mui/material';
-import DeleteIcon from '@mui/icons-material/Delete';
-import { startDeleteProperty } from '../redux/actions/properties';
 import { NavBar } from '../components/NavBar';
+import { PropertiesHelper } from '../helpers/propertiesHelper';
 
 const PropertiesEdit = () => {
-
-    const dispatch = useDispatch()
-    // @ts-ignore
-    const { getVehicleProperty } = useSelector( state => state.property.properties );
-    console.log('getVehicleProperty', getVehicleProperty)
-
-    const handleDelete = (e, id) => {
-        e.preventDefault();
-        dispatch( startDeleteProperty( id ) );
-    }
-
 
 return (
 
@@ -32,27 +18,7 @@ return (
         <div className="row">
             <div className="col-12">
                 <table className="table table-striped">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Nombre</th>
-                            {/* <th scope="col">Valor</th> */}
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {getVehicleProperty && getVehicleProperty.map( property => (
-                            <tr key={ property.id }>
-                                <td>{ property.id }</td>
-                                <td>{ property.name }</td>
-                                <td>{ property.value }</td>
-                                <IconButton aria-label="delete" size="large">
-                                        <DeleteIcon
-                                            onClick={ (e) => handleDelete(e, property.id) }
-                                        />
-                                </IconButton>
-                            </tr>
-                        ))}
-                    </tbody>
+                    <PropertiesHelper />
                 </table>
 
             </div>
