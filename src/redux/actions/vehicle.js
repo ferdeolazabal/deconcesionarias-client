@@ -7,8 +7,7 @@ import { baseUrl } from "../../helpers/const";
 
 export const startNewVehicle = ( data ) => {
 
-    console.log( data );
-    return async(dispatch, getState) => {
+    return async( dispatch ) => {
         dispatch( newVehicleStart() );
         try {
             const response = await axios.post(`${ baseUrl }/vehicles/`, data);
