@@ -4,7 +4,7 @@ import { TabPanel } from "../helpers/TabPanel";
 import { useNavigate } from "react-router-dom";
 
 export const Properties = ( { property } ) => {
-
+    console.log('Properties props', property);
     // @ts-ignore
     const { getVehicleProperty } = useSelector( state => state.property.properties );
     // @ts-ignore
@@ -14,7 +14,6 @@ export const Properties = ( { property } ) => {
         e.preventDefault();
         navigate('/');
     }
-
 
     return (
         <div className="property-div">

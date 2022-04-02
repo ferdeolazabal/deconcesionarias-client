@@ -11,8 +11,8 @@ const indexTab = (index) => ({
 })
 
 
-const Categories = () => {
-
+const Categories = ( props ) => {
+    console.log( 'Categories props', props );
     // @ts-ignore
     const { propertyCategories } = useSelector( state => state.categories.categories );
 
