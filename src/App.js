@@ -1,11 +1,12 @@
-import { Provider } from 'react-redux';
-import { store } from './redux/store/store';
+// @ts-nocheck
+import React from "react";
+import { Provider } from "react-redux";
+import { store } from "./redux/store/store";
 
-import { AppRouter } from './router/AppRouter.js';
-import './App.css';
+import { AppRouter } from "./router/AppRouter.js";
+import "./App.css";
 
 const App = () => {
-  
   return (
     <Provider store={store}>
       <AppRouter />
