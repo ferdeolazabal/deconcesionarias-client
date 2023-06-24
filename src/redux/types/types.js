@@ -16,9 +16,8 @@ export const types = {
     VehicleUpdated         : '[Vehicle] Vehicle Updated',
     VehicleDeleted         : '[Vehicle] Vehicle Deleted',
     vehicleLoadedById      : '[Vehicle] Vehicle Loaded By Id',
-    
-    
-    // getvehicle             : '[Vehicle] Get vehicle',
+
+
 
     valueCreate       : '[Value] Value create',
     valueCreated      : '[Value] Value created',
