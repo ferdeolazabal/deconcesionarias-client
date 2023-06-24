@@ -1,5 +1,5 @@
-import { types } from "../types/types";
 import axios from "axios";
+import { types } from "../types/types";
 
 const baseUrl = process.env.REACT_APP_API_URL;
 
