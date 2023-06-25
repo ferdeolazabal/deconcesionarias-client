@@ -63,6 +63,8 @@ export const GetValues = () => {
                         key={value.id}
                         id={value.id}
                         value={value.value}
+                        sizeStar="medium"
+                        disabled={true}
                       />
                     </td>
                   </tr>
