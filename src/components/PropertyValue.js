@@ -1,18 +1,9 @@
 // @ts-nocheck
 import React from "react";
 import { Rating } from "@mui/material";
-// import { useDispatch } from "react-redux";
-// import { valueCreate } from "../redux/actions/value";
 
 const PropertyValue = (props) => {
-  const {
-    id,
-    name,
-    value,
-    sizeStar = "small",
-    onChange = () => 1,
-    ...rest
-  } = props;
+  const { id, name, sizeStar = "small", onChange = () => 1, ...rest } = props;
 
   return (
     <div className="content" key={id}>
@@ -21,7 +12,6 @@ const PropertyValue = (props) => {
       <Rating
         size={sizeStar}
         name={`simple-controlled-${id}`}
-        value={value}
         onChange={(e, newValue) => {
           onChange(id, newValue);
         }}
