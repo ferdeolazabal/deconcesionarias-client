@@ -1,12 +1,17 @@
 // @ts-nocheck
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import PropertyValue from "../components/PropertyValue";
+import { startEditValues } from "../redux/actions/value";
 
 export const GetValues = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const [edit, setEdit] = useState(true);
   const { vehicle } = useSelector(({ vehicles }) => vehicles.vehicle);
+
   const { getVehicleProperty } = useSelector(
     ({ property }) => property.properties
   );
@@ -18,20 +23,30 @@ export const GetValues = () => {
     const property = getVehicleProperty.find(
       (cat) => cat.id === prop.vehicle_property_FK
     );
-    // anexar la categoria
+
     const category = propertyCategories.find(
       (cat) => cat.id === property.property_category_FK
     );
     return {
-      ...prop,
-      category: category.name,
-      property: property.name,
-      value: prop.value || 0,
+      vehicleId: vehicle.id,
+      categoryId: category.id,
+      propertyId: property.id,
+      categoryName: category.name,
+      propertyName: property.name,
+      propertyValue: prop.value || 0,
     };
   });
 
   const capitalize = (str = "") => {
     return str.charAt(0).toUpperCase() + str.slice(1);
+  };
+
+  const updateValue = (propertyId, newValue) => {
+    const body = {
+      propertyCategory_FK: propertyId,
+      propertyValue: newValue,
+    };
+    dispatch(startEditValues(propertyId, body));
   };
 
   return (
@@ -45,8 +60,8 @@ export const GetValues = () => {
 
         <div className="row">
           <div className="col-12">
-            <table className="table table-striped">
-              <thead>
+            <table className="table table-striped table-hover">
+              <thead className="thead-dark">
                 <tr>
                   <th>Categoria</th>
                   <th>Propiedad</th>
@@ -54,21 +69,31 @@ export const GetValues = () => {
                 </tr>
               </thead>
               <tbody>
-                {values?.map((value) => (
-                  <tr key={value.id}>
-                    <td>{value.category}</td>
-                    <td>{value.property}</td>
-                    <td>
-                      <PropertyValue
-                        key={value.id}
-                        id={value.id}
-                        value={value.value}
-                        sizeStar="medium"
-                        disabled={true}
-                      />
-                    </td>
-                  </tr>
-                ))}
+                {values?.map(
+                  ({
+                    categoryName,
+                    propertyName,
+                    propertyValue,
+                    propertyId,
+                  }) => (
+                    <tr key={propertyId}>
+                      <td>{categoryName}</td>
+                      <td>{propertyName}</td>
+                      <td>
+                        <PropertyValue
+                          key={propertyId}
+                          id={propertyId}
+                          value={propertyValue}
+                          sizeStar="medium"
+                          disabled={edit}
+                          onChange={(propertyId, newValue) =>
+                            updateValue(propertyId, newValue)
+                          }
+                        />
+                      </td>
+                    </tr>
+                  )
+                )}
               </tbody>
             </table>
           </div>
@@ -76,18 +101,18 @@ export const GetValues = () => {
 
         <div className="d-flex justify-content-around">
           <button
-            className="mb-5 btn btn-primary col-4 mx-auto"
+            className="mb-5 btn btn-primary col-3 mx-auto"
             type="button"
             onClick={() => navigate("/")}
           >
             Volver
           </button>
           <button
-            className="mb-5 btn btn-primary col-4 mx-auto"
+            className="mb-5 btn btn-primary col-3 mx-auto"
             type="button"
-            onClick={() => navigate("/PropertiesEdit")}
+            onClick={() => setEdit(!edit)}
           >
-            Editar Propiedades
+            Editar Valores
           </button>
         </div>
       </div>
