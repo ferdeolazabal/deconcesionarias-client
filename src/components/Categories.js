@@ -27,10 +27,6 @@ const Categories = () => {
     setValue(newValue);
   };
 
-  const icon = (cat) => (
-    <i className="material-icons outlined md-48 orange600">{cat.icon}</i>
-  );
-
   return (
     <div className="container">
       <div className="test">
@@ -46,15 +42,20 @@ const Categories = () => {
             scrollButtons="auto"
             selectionFollowsFocus
           >
-            {propertyCategories?.map((category, i) => (
-              <Tab
-                icon={(category) => icon(category)}
-                key={category.id}
-                label={category.name}
-                {...indexTab(i)}
-                wrapped
-              />
-            ))}
+            {propertyCategories &&
+              propertyCategories?.map((category, i) => (
+                <Tab
+                  icon={
+                    <i className="material-icons outlined md-48 orange600">
+                      {category?.icon}
+                    </i>
+                  }
+                  key={category.id}
+                  label={category.name}
+                  {...indexTab(i)}
+                  wrapped
+                />
+              ))}
           </Tabs>
         </Box>
       </div>
