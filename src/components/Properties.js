@@ -14,8 +14,8 @@ export const Properties = ({ property }) => {
     ({ property }) => property.properties
   );
 
-  const updateValue = (id, newValue) => {
-    dispatch(valueCreate(id, newValue));
+  const updateValue = (vehiclePropertyId, newValue) => {
+    dispatch(valueCreate(vehiclePropertyId, newValue));
   };
 
   return (
@@ -25,14 +25,13 @@ export const Properties = ({ property }) => {
           {getVehicleProperty
             ?.filter((i) => i.property_category_FK === property + 1)
             .map(({ id, name, value }) => (
-              <div className="" key={id}>
-                <PropertyValue
-                  id={id}
-                  name={name}
-                  value={value}
-                  onChange={(id, newValue) => updateValue(id, newValue)}
-                />
-              </div>
+              <PropertyValue
+                id={id}
+                key={id}
+                name={name}
+                value={value}
+                onChange={updateValue}
+              />
             ))}
         </TabPanel>
 
