@@ -14,31 +14,24 @@ export const GetValues = () => {
     ({ categories }) => categories.categories
   );
 
-  const values =
-    vehicle &&
-    vehicle?.properties?.map((prop) => {
-      const property = getVehicleProperty.find(
-        (cat) => cat.id === prop.vehicle_property_FK
-      );
-      // anexar la categoria
-      const category = propertyCategories.find(
-        (cat) => cat.id === property.property_category_FK
-      );
-      return {
-        ...prop,
-        category: category.name,
-        property: property.name,
-        value: prop.value || 0,
-      };
-    });
+  const values = vehicle?.properties?.map((prop) => {
+    const property = getVehicleProperty.find(
+      (cat) => cat.id === prop.vehicle_property_FK
+    );
+    // anexar la categoria
+    const category = propertyCategories.find(
+      (cat) => cat.id === property.property_category_FK
+    );
+    return {
+      ...prop,
+      category: category.name,
+      property: property.name,
+      value: prop.value || 0,
+    };
+  });
 
   const capitalize = (str = "") => {
     return str.charAt(0).toUpperCase() + str.slice(1);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    navigate("/");
   };
 
   return (
@@ -72,32 +65,39 @@ export const GetValues = () => {
                 </tr>
               </thead>
               <tbody>
-                {values &&
-                  values.map((value) => (
-                    <tr key={value.id}>
-                      <td>{value.category}</td>
-                      <td>{value.property}</td>
+                {values?.map((value) => (
+                  <tr key={value.id}>
+                    <td>{value.category}</td>
+                    <td>{value.property}</td>
+                    <td>
                       <PropertyValue
+                        key={value.id}
                         id={value.id}
-                        name={value.null}
                         value={value.value}
                       />
-                    </tr>
-                  ))}
+                    </td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>
         </div>
-        <div className="fixed-botto">
-          <div className="d-grid gap-2 col-5 mx-auto">
-            <button
-              className="mb-5 btn btn-lg btn-block btn-primary"
-              type="button"
-              onClick={handleSubmit}
-            >
-              Volver
-            </button>
-          </div>
+
+        <div className="d-flex justify-content-around">
+          <button
+            className="mb-5 btn btn-primary col-4 mx-auto"
+            type="button"
+            onClick={() => navigate("/")}
+          >
+            Volver
+          </button>
+          <button
+            className="mb-5 btn btn-primary col-4 mx-auto"
+            type="button"
+            onClick={() => navigate("/PropertiesEdit")}
+          >
+            Editar Propiedades
+          </button>
         </div>
       </div>
     </>
