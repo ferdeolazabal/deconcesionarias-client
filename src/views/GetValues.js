@@ -41,17 +41,6 @@ export const GetValues = () => {
           {capitalize(vehicle?.brand)} {capitalize(vehicle?.model)}{" "}
           {vehicle?.year}
           <br />
-          {/* {
-                        values && values.map( value => (
-                            <span key={ value.id } >
-                                <PropertyValue
-                                    id={ value.id }
-                                    name={ value.property }
-                                    value={ value.value }
-                                />
-                            </span>
-                        ))
-                    } */}
         </h3>
 
         <div className="row">
