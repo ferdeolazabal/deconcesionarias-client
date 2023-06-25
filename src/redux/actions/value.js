@@ -1,4 +1,5 @@
 import axios from "axios";
+import Swal from "sweetalert2";
 import { types } from "../types/types";
 
 const baseUrl = process.env.REACT_APP_API_URL;
@@ -37,6 +38,23 @@ export const startEditValues = (propertyId, body) => {
         { body }
       );
       dispatch(valueUpdated(data));
+
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 2500,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener("mouseenter", Swal.stopTimer);
+          toast.addEventListener("mouseleave", Swal.resumeTimer);
+        },
+      });
+
+      Toast.fire({
+        icon: "success",
+        title: "Valor actualizado con exito",
+      });
     } catch (error) {
       console.log(error);
     }
