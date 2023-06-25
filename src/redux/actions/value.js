@@ -3,11 +3,11 @@ import { types } from "../types/types";
 
 const baseUrl = process.env.REACT_APP_API_URL;
 
-export const valueCreate = (id, value) => {
+export const valueCreate = (vehiclePropertyId, value) => {
   return async (dispatch, getState) => {
-    const idVehicleNum = getState().vehicles.vehicle.vehicle.id;
-    const vehicle_FK = idVehicleNum.toString();
-    const vehicle_property_FK = id.toString();
+    const vehicleId = getState().vehicles.vehicle.vehicle.id;
+    const vehicle_FK = vehicleId.toString();
+    const vehicle_property_FK = vehiclePropertyId.toString();
     try {
       const { data } = await axios.post(`${baseUrl}/propertyValues`, {
         vehicle_FK,
@@ -28,14 +28,13 @@ const valueCreated = (data) => {
   };
 };
 
-export const startEditValues = (idVehicle, value) => {
-  return async (dispatch) => {
+export const startEditValues = (propertyId, body) => {
+  return async (dispatch, getState) => {
+    const vehicleId = getState().vehicles.vehicle.vehicle.id;
     try {
       const { data } = await axios.put(
-        `${baseUrl}/propertyValues/${idVehicle}`,
-        {
-          value,
-        }
+        `${baseUrl}/propertyValues/${vehicleId}`,
+        { body }
       );
       dispatch(valueUpdated(data));
     } catch (error) {

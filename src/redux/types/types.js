@@ -1,55 +1,49 @@
-
 export const types = {
+  categoriesLoading: "[Category] Categories loading",
+  categoriesLoaded: "[Category] Categories loaded",
 
-    categoriesLoading      : '[Category] Categories loading',
-    categoriesLoaded       : '[Category] Categories loaded',
-    
-    propertyLoading        : '[Property] Property Loading',
-    propertyLoaded         : '[Property] Property loaded',
-    startDeleteProperty    : '[Property] Property Delete',
-    PropertyDeleted        : '[Property] Property Deleted',
+  propertyLoading: "[Property] Property Loading",
+  propertyLoaded: "[Property] Property loaded",
+  startDeleteProperty: "[Property] Property Delete",
+  PropertyDeleted: "[Property] Property Deleted",
 
-    newVehicle             : '[Vehicle] New Vehicle',
-    newVehicleStart        : '[Vehicle] Start New Vehicle',
-    vehiclesLoading        : '[Vehicle] Vehicles Loading',
-    vehiclesLoaded         : '[Vehicle] Vehicles Loaded',
-    VehicleUpdated         : '[Vehicle] Vehicle Updated',
-    VehicleDeleted         : '[Vehicle] Vehicle Deleted',
-    vehicleLoadedById      : '[Vehicle] Vehicle Loaded By Id',
+  newVehicle: "[Vehicle] New Vehicle",
+  newVehicleStart: "[Vehicle] Start New Vehicle",
+  vehiclesLoading: "[Vehicle] Vehicles Loading",
+  vehiclesLoaded: "[Vehicle] Vehicles Loaded",
+  VehicleUpdated: "[Vehicle] Vehicle Updated",
+  VehicleDeleted: "[Vehicle] Vehicle Deleted",
+  vehicleLoadedById: "[Vehicle] Vehicle Loaded By Id",
 
+  valueCreate: "[Value] Value create",
+  valueCreated: "[Value] Value created",
+  valueUpdated: "[Value] Value updated",
+  valuesLoadedByVehicleId: "[Value] Values loaded by vehicle id",
 
+  // uiSetError        : '[UI] Set Error',
+  // uiRemoveError     : '[UI] Remove Error',
 
-    valueCreate       : '[Value] Value create',
-    valueCreated      : '[Value] Value created',
-    
-    
-    // uiSetError        : '[UI] Set Error',
-    // uiRemoveError     : '[UI] Remove Error',
-    
-    // valueUpdate       : '[Value] Update event',
-    // valueUpdated      : '[Value] Value updated',
+  // valueUpdate       : '[Value] Update event',
+  // valueUpdated      : '[Value] Value updated',
 
-    // valueLoad         : '[Value] Load event',
-    // valueLoaded       : '[Value] Value loaded',
+  // valueLoad         : '[Value] Load event',
+  // valueLoaded       : '[Value] Value loaded',
 
-    // propertyCreate:      '[property] Create property',
-    // propertyCreated:     '[property] Property created',
+  // propertyCreate:      '[property] Create property',
+  // propertyCreated:     '[property] Property created',
 
-    // propertyUpdate:      '[property] Update property',
-    // propertyUpdated:     '[property] Property updated',
+  // propertyUpdate:      '[property] Update property',
+  // propertyUpdated:     '[property] Property updated',
 
-    // propertyDelete:      '[property] Delete property',
-    // propertyDeleted:     '[property] Property deleted',
+  // propertyDelete:      '[property] Delete property',
+  // propertyDeleted:     '[property] Property deleted',
 
-    // categoryCreate: '[category] Create category',
-    // categoryCreated: '[category] Category created',
+  // categoryCreate: '[category] Create category',
+  // categoryCreated: '[category] Category created',
 
-    // categoryUpdate: '[category] Update category',
-    // categoryUpdated: '[category] Category updated',
+  // categoryUpdate: '[category] Update category',
+  // categoryUpdated: '[category] Category updated',
 
-    // categoryDelete: '[category] Delete category',
-    // categoryDeleted: '[category] Category deleted',
-
-
-
+  // categoryDelete: '[category] Delete category',
+  // categoryDeleted: '[category] Category deleted',
 };

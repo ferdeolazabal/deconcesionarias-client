@@ -86,6 +86,27 @@ const vehicleLoadedById = (data) => {
   };
 };
 
+export const getValuesByVehicleId = (id) => {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios.get(
+        `${baseUrl}/vehicles/vehicleValues/${id}`
+      );
+      console.log({ data }, "getValuesByVehicleId");
+      dispatch(valuesLoadedByVehicleId(data));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+const valuesLoadedByVehicleId = (data) => {
+  return {
+    type: types.valuesLoadedByVehicleId,
+    payload: data,
+  };
+};
+
 export const startDeleteVehicle = (id) => {
   return async (dispatch) => {
     try {
