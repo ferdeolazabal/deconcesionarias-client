@@ -1,15 +1,22 @@
 // @ts-nocheck
 import React from "react";
 import { TabPanel } from "../helpers/TabPanel";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { valueCreate } from "../redux/actions/value";
 import PropertyValue from "./PropertyValue";
 
 export const Properties = ({ property }) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const { getVehicleProperty } = useSelector(
     ({ property }) => property.properties
   );
+
+  const updateValue = (id, newValue) => {
+    dispatch(valueCreate(id, newValue));
+  };
 
   return (
     <div className="property-div">
@@ -17,12 +24,13 @@ export const Properties = ({ property }) => {
         <TabPanel value={property} index={property}>
           {getVehicleProperty
             ?.filter((i) => i.property_category_FK === property + 1)
-            .map((property) => (
-              <div className="" key={property.id}>
+            .map(({ id, name, value }) => (
+              <div className="" key={id}>
                 <PropertyValue
-                  id={property.id}
-                  name={property.name}
-                  value={property.value}
+                  id={id}
+                  name={name}
+                  value={value}
+                  onChange={(id, newValue) => updateValue(id, newValue)}
                 />
               </div>
             ))}
