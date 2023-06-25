@@ -64,6 +64,7 @@ export const Home = () => {
               onChange={handleInputChange}
               value={brand}
               autoComplete="off"
+              id="brand"
             />
             <input
               type="text"
@@ -76,6 +77,7 @@ export const Home = () => {
               onChange={handleInputChange}
               value={model}
               autoComplete="off"
+              id="model"
             />
             <input
               type="text"
@@ -86,6 +88,7 @@ export const Home = () => {
               onChange={handleInputChange}
               value={year}
               autoComplete="off"
+              id="year"
             />
             <button
               type="submit"
