@@ -4,7 +4,8 @@ import { Rating } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { valueCreate } from "../redux/actions/value";
 
-const PropertyValue = ({ id, value }) => {
+const PropertyValue = (props) => {
+  const { id, name, value, sizeStar = "small", disabled = false } = props;
   const dispatch = useDispatch();
 
   const updateValue = (id, e) => {
@@ -12,13 +13,17 @@ const PropertyValue = ({ id, value }) => {
   };
 
   return (
-    <Rating
-      disabled={true}
-      size="large"
-      name={`simple-controlled-${id}`}
-      value={value}
-      onChange={(newValue) => updateValue(id, newValue)}
-    />
+    <div className="content" key={id}>
+      <div>{name} </div>
+
+      <Rating
+        disabled={disabled}
+        size={sizeStar}
+        name={`simple-controlled-${id}`}
+        value={value}
+        onChange={(newValue) => updateValue(id, newValue)}
+      />
+    </div>
   );
 };
 
