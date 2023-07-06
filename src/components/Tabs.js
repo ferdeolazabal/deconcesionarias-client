@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Tabs, Tab, Box } from "@mui/material";
 
 const indexTab = (index) => ({
@@ -25,8 +25,8 @@ const CustomTabs = (props) => {
         value={value}
         onChange={handleChange}
         textColor="secondary"
-        // variant="scrollable"
-        variant="fullWidth"
+        variant="scrollable"
+        // variant="fullWidth"
         indicatorColor="secondary"
         allowScrollButtonsMobile
         scrollButtons="auto"
