@@ -53,7 +53,7 @@ export const startEditValues = (propertyId, body) => {
 
       Toast.fire({
         icon: "success",
-        title: "Valor actualizado con exito",
+        title: "Valor actualizado con exito!",
       });
     } catch (error) {
       console.log(error);
